@@ -1,4 +1,4 @@
-const statefulUrl = {
+const StatefulURL = {
 
   updateParam: (name, value) => {
     const params = new URLSearchParams(location.search);
