@@ -1,19 +1,32 @@
-const StatefulURL = {
+class StatefulURL {
 
-  updateParam: (name, value) => {
+  setState(params) {
+    let newURL = window.location.pathname;
+    if (params && params.entries().next().done === false) {
+      newURL += '?' + params;
+    }
+    window.history.replaceState({}, '', newURL);
+  }
+
+  set(name, value) {
     const params = new URLSearchParams(location.search);
     params.set(name, value);
-    const newURL = `${window.location.pathname}?${params}`;
-    window.history.replaceState({}, '', newURL);
-  },
+    this.setState(params);
+  }
 
-  getParam: (name) => {
+  get(name) {
     const params = new URLSearchParams(location.search);
     return params.get(name);
-  },
+  }
 
-  clearParams: () => {
-    window.history.replaceState({}, '', window.location.pathname);
+  delete(name) {
+    const params = new URLSearchParams(location.search);
+    params.delete(name);
+    this.setState(params);
+  }
+
+  clear() {
+    this.setState(null);
   }
 
 };
