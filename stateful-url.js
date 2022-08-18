@@ -18,6 +18,11 @@ export default class StatefulURL extends URLSearchParams {
     this.setState();
   }
 
+  append(name, value) {
+    super.append(name, value);
+    this.setState();
+  }
+
   delete(name) {
     super.delete(name);
     this.setState();
@@ -28,6 +33,11 @@ export default class StatefulURL extends URLSearchParams {
     for (let key of keys) {
       this.delete(key);
     }
+  }
+
+  sort() {
+    super.sort();
+    this.setState();
   }
 
 };

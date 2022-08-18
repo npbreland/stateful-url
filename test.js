@@ -13,14 +13,15 @@ let sURL;
     sURL.clear();
   });
 
-  it('foo equals bar', () => {
+  it('Sets the query parameter', () => {
     sURL.set('foo', 'bar');
 
-    const test = sURL.get('foo');
-    assert.strictEqual(test, 'bar', `test ${test} !== bar`);
+    const qs = location.search;
+    const answer = '?foo=bar'
+    assert.strictEqual(location.search, answer, `query string ${qs} !== ${answer}`);
   });
 
-  it('foo equals bar', () => {
+  it('Gets the query parameter', () => {
     sURL.set('foo', 'bar');
     const test = sURL.get('foo');
     assert.strictEqual(test, 'bar', `test ${test} !== bar`);
@@ -33,19 +34,31 @@ let sURL;
 
     sURL.clear();
     
-    const qs = sURL.toString();
+    const qs = location.search;
     assert.equal(qs, '', `query string ${qs} is not empty`);
   });
 
+  it("Sorts the query parameters by key", () => {
+    sURL.set('coconut', '1');
+    sURL.set('apple', '1');
+    sURL.set('banana', '1');
+
+    sURL.sort();
+    
+    const qs = location.search;
+    const answer = '?apple=1&banana=1&coconut=1';
+    assert.strictEqual(qs, answer, `query string ${qs} !== ${answer}`)
+  });
 
   it("Appends array values to single key", () => {
-
     sURL.append('foo', 'bar1');
     sURL.append('foo', 'bar2');
     sURL.append('foo', 'bar3');
+    
+    const qs = location.search;
+    const answer = '?foo=bar1&foo=bar2&foo=bar3';
 
-    const test = sURL.getAll('foo');
-    assert.deepEqual(test, [ 'bar1', 'bar2', 'bar3' ], 'Result not equal to expected array');
+    assert.strictEqual(qs, answer, `query string ${qs} !== ${answer}`);
   });
 
 });
