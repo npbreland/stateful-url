@@ -4,7 +4,7 @@
 [**npm**](https://www.npmjs.com/package/stateful-url)
 
 ## About
-This tiny (just over 700 bytes) helper extends the [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) 
+This tiny helper extends the [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) 
 interface to update the URL with changes made to the parameters. This allows bookmarking and
 sharing of your application in a given state. It can be particularly useful
 in Single Page Applications (SPAs), where you don't want to navigate away from
