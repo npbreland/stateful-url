@@ -1,6 +1,8 @@
 # stateful-url
 **Maintain application state in your URL**
 
+[**npm**](https://www.npmjs.com/package/stateful-url)
+
 ## About
 This tiny (just over 700 bytes) helper extends the [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) 
 interface to update the URL with changes made to the parameters. This allows bookmarking and
@@ -14,6 +16,8 @@ on that interface. This package will just update the URL immediately with those
 changes, using [History.replaceState()](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState).
 
 ## Usage
+
+`npm i stateful-url`
 
 This source code is written as an ES module, so it can be imported into your
 favorite front-end framework. Alternatively, you can import it on its own using
