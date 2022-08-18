@@ -1,4 +1,4 @@
-import StatefulURL from '../src/stateful-url.js';
+import StatefulURL from './stateful-url.js';
 
 const assert = chai.assert;
 
