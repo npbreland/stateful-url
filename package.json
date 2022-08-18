@@ -1,6 +1,6 @@
 {
   "name": "stateful-url",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Make your URL a store of application state. Allows bookmarking and sharing of the given state.",
   "main": "stateful-url.js",
   "repository": {
