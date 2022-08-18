@@ -1,32 +1,33 @@
-class StatefulURL {
+export default class StatefulURL extends URLSearchParams {
 
-  setState(params) {
-    let newURL = window.location.pathname;
-    if (params && params.entries().next().done === false) {
-      newURL += '?' + params;
+  constructor(init) {
+    super(init);
+  }
+
+  setState() {
+    const path = window.location.pathname;
+    if (this.entries().next().done === true) {
+      window.history.replaceState({}, '', path);
+    } else {
+      window.history.replaceState({}, '', path + '?' + this);
     }
-    window.history.replaceState({}, '', newURL);
   }
 
   set(name, value) {
-    const params = new URLSearchParams(location.search);
-    params.set(name, value);
-    this.setState(params);
-  }
-
-  get(name) {
-    const params = new URLSearchParams(location.search);
-    return params.get(name);
+    super.set(name, value);
+    this.setState();
   }
 
   delete(name) {
-    const params = new URLSearchParams(location.search);
-    params.delete(name);
-    this.setState(params);
+    super.delete(name);
+    this.setState();
   }
 
   clear() {
-    this.setState(null);
+    const keys = [ ...this.keys() ];
+    for (let key of keys) {
+      this.delete(key);
+    }
   }
 
 };
