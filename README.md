@@ -58,6 +58,9 @@ sURL.set('banana', '1');
 sURL.sort();
 // -> https://example.com?apple=1&banana=1&coconut=1
 
+sURL.clear(); // Convenience method for clearing all params at once
+// -> https://example.com
+
 ```
 
 ## Testing
